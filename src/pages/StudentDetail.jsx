@@ -57,10 +57,10 @@ export default function StudentDetail() {
 
   const getTagColor = (tag) => {
     switch (tag) {
-      case 'Serious': return 'bg-purple-100 text-purple-800'
-      case 'Average': return 'bg-blue-100 text-blue-800'
-      case 'Irregular': return 'bg-dark-700 text-gray-800'
-      default: return 'bg-dark-700 text-gray-800'
+      case 'Serious': return 'bg-purple-900/30 text-purple-400 border border-purple-700'
+      case 'Average': return 'bg-blue-900/30 text-blue-400 border border-blue-700'
+      case 'Irregular': return 'bg-amber-900/30 text-amber-400 border border-amber-700'
+      default: return 'bg-dark-700 text-gray-400 border border-dark-600'
     }
   }
 
@@ -78,7 +78,7 @@ export default function StudentDetail() {
       {/* Profile Header */}
       <Card className="p-6">
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <div className="w-24 h-24 bg-primary-900/30 rounded-full flex items-center justify-center flex-shrink-0">
             <span className="text-3xl font-bold text-primary-400">
               {student.name.split(' ').map(n => n[0]).join('')}
             </span>
@@ -176,9 +176,9 @@ export default function StudentDetail() {
       </Card>
 
       {/* Study Insights */}
-      <Card className="bg-gradient-to-r from-purple-50 to-blue-50">
+      <Card className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border-primary-700/50">
         <div className="flex items-start gap-3">
-          <div className="p-2 bg-primary-100 rounded-lg">
+          <div className="p-2 bg-primary-900/30 rounded-lg">
             <TrendingUp className="w-5 h-5 text-primary-400" />
           </div>
           <div>
@@ -203,12 +203,12 @@ export default function StudentDetail() {
 
       {/* Risk Alert */}
       {student.status === 'Expired' && (
-        <Card className="border-red-200 bg-red-900/30">
+        <Card className="border-red-700/50 bg-red-900/30">
           <div className="flex items-center gap-3">
             <AlertCircle className="w-5 h-5 text-red-400" />
             <div>
-              <h3 className="font-semibold text-red-800">Membership Expired</h3>
-              <p className="text-sm text-red-400">This student's membership has expired. Consider reaching out for renewal.</p>
+              <h3 className="font-semibold text-red-400">Membership Expired</h3>
+              <p className="text-sm text-red-300">This student's membership has expired. Consider reaching out for renewal.</p>
             </div>
           </div>
         </Card>

@@ -76,12 +76,12 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Dashboard</h1>
           <p className="text-gray-400">Welcome back! Here's what's happening today.</p>
         </div>
-        <Button icon={Calendar} variant="outline">
+        <Button icon={Calendar} variant="outline" className="w-full sm:w-auto">
           {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </Button>
       </div>

@@ -164,7 +164,7 @@ export default function Fees() {
 
       {/* Recovery Priority List */}
       <Card className="border-2 border-red-500/50">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <AlertCircle className="w-5 h-5 text-red-400" />
             <h2 className="text-lg font-semibold text-white">Recovery Priority List</h2>
@@ -193,7 +193,7 @@ export default function Fees() {
 
       {/* All Students */}
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
           <h2 className="text-lg font-semibold text-white">All Students</h2>
           <Select
             value={filterStatus}
@@ -204,7 +204,7 @@ export default function Fees() {
               { value: 'warning', label: 'Expiring Soon' },
               { value: 'success', label: 'Active' }
             ]}
-            className="w-40"
+            className="w-full sm:w-40"
           />
         </div>
         <DataTable
@@ -237,7 +237,7 @@ export default function Fees() {
                   <p className="text-sm text-gray-400">{selectedStudent.phone}</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p className="text-gray-400">Current Plan</p>
                   <p className="font-medium">{selectedStudent.plan}</p>

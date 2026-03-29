@@ -95,36 +95,38 @@ export default function DropRisk() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-white">Drop Risk Detection</h1>
-        <p className="text-gray-400">Identify and retain students at risk of leaving</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Drop Risk Detection</h1>
+          <p className="text-gray-400">Identify and retain students at risk of leaving</p>
+        </div>
       </div>
 
       {/* Alert Banner */}
-      <Card className="border-red-700/50 bg-red-900/30">
-        <div className="flex items-start gap-4">
-          <div className="p-3 bg-red-900/30 rounded-lg">
+      <Card className="border-red-700/50 bg-red-900/20">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+          <div className="p-3 bg-red-900/30 rounded-lg flex-shrink-0 w-fit">
             <AlertTriangle className="w-6 h-6 text-red-400" />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <h2 className="text-lg font-semibold text-red-400">Retention Alert</h2>
-            <p className="text-red-400 mt-1">
+            <p className="text-red-300 mt-1 text-sm">
               {students.length} students are at risk of leaving the library. Immediate action required to prevent revenue loss.
             </p>
-            <div className="flex flex-wrap items-center gap-6 mt-4">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-4 sm:gap-6 mt-4">
               <div>
-                <p className="text-sm text-red-400">Potential Revenue Loss</p>
-                <p className="text-2xl font-bold text-red-400">₹{potentialRevenueLoss.toLocaleString()}</p>
+                <p className="text-xs text-red-400">Potential Revenue Loss</p>
+                <p className="text-xl sm:text-2xl font-bold text-red-400">₹{potentialRevenueLoss.toLocaleString()}</p>
               </div>
               <div>
-                <p className="text-sm text-red-400">Critical Risk</p>
-                <p className="text-2xl font-bold text-red-400">
+                <p className="text-xs text-red-400">Critical Risk</p>
+                <p className="text-xl sm:text-2xl font-bold text-red-400">
                   {students.filter(s => s.riskLevel === 'Critical').length}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-red-400">High Risk</p>
-                <p className="text-2xl font-bold text-red-400">
+                <p className="text-xs text-red-400">High Risk</p>
+                <p className="text-xl sm:text-2xl font-bold text-red-400">
                   {students.filter(s => s.riskLevel === 'High').length}
                 </p>
               </div>

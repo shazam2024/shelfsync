@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Plus, Search, Filter, MoreVertical, Eye, Edit, Trash2, UserCheck } from 'lucide-react'
+import { Plus, Search, Filter, MoreVertical, Eye, Edit, Trash2, UserCheck, Calendar } from 'lucide-react'
 import { Card } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { DataTable } from '../components/ui/Table'
@@ -135,18 +135,18 @@ export default function Students() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Student Management</h1>
-          <p className="text-gray-400">Manage your library students</p>
+          <h1 className="text-2xl font-bold text-white">Students</h1>
+          <p className="text-gray-400">Manage and view all registered students</p>
         </div>
-        <Button icon={Plus} onClick={() => setIsAddModalOpen(true)}>
+        <Button icon={Plus} onClick={() => setIsAddModalOpen(true)} className="w-full sm:w-auto">
           Add Student
         </Button>
       </div>
 
       {/* Filters */}
       <Card className="p-4">
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="relative flex-1 min-w-[200px]">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
@@ -156,8 +156,8 @@ export default function Students() {
               className="w-full pl-10 pr-4 py-2 bg-dark-700 border border-dark-500 rounded-lg text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-gray-400" />
+          <div className="flex flex-wrap items-center gap-2">
+            <Filter className="w-4 h-4 text-gray-400 hidden sm:block" />
             <Select
               value={filterShift}
               onChange={(e) => setFilterShift(e.target.value)}
@@ -167,7 +167,7 @@ export default function Students() {
                 { value: 'Afternoon', label: 'Afternoon' },
                 { value: 'Evening', label: 'Evening' }
               ]}
-              className="w-40"
+              className="w-full sm:w-36"
             />
             <Select
               value={filterStatus}
@@ -178,7 +178,7 @@ export default function Students() {
                 { value: 'Expired', label: 'Expired' },
                 { value: 'Inactive', label: 'Inactive' }
               ]}
-              className="w-40"
+              className="w-full sm:w-36"
             />
           </div>
         </div>
@@ -242,12 +242,12 @@ export default function Students() {
         size="md"
       >
         <form className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="Full Name" required />
             <Input label="Phone Number" type="tel" required />
           </div>
           <Input label="Email" type="email" />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Select
               label="Shift"
               options={[
@@ -285,12 +285,12 @@ export default function Students() {
       >
         {selectedStudent && (
           <form className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input label="Full Name" defaultValue={selectedStudent.name} required />
               <Input label="Phone Number" type="tel" defaultValue={selectedStudent.phone} required />
             </div>
             <Input label="Email" type="email" defaultValue={selectedStudent.email} />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Select
                 label="Shift"
                 defaultValue={selectedStudent.shift.toLowerCase()}

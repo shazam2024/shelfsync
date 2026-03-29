@@ -37,9 +37,11 @@ export default function Seats() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-white">Seat & Shift Management</h1>
-        <p className="text-gray-400">View and manage library seating arrangements</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Seat & Shift Management</h1>
+          <p className="text-gray-400">View and manage library seating arrangements</p>
+        </div>
       </div>
 
       {/* Shift Tabs */}
@@ -113,25 +115,25 @@ export default function Seats() {
 
       {/* Seat Map */}
       <Card>
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
           <div>
             <h2 className="text-lg font-semibold text-white">
               {shifts.find(s => s.id === activeShift)?.name} Shift
             </h2>
             <p className="text-sm text-gray-400">{shiftData[activeShift].time}</p>
           </div>
-          <div className="flex items-center gap-4 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-emerald-500 rounded"></div>
-              <span>Occupied</span>
+          <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-emerald-500 rounded"></div>
+              <span className="text-gray-300">Occupied</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-dark-600 rounded"></div>
-              <span>Available</span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-dark-600 rounded"></div>
+              <span className="text-gray-300">Available</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-red-500 rounded"></div>
-              <span>Expired</span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-500 rounded"></div>
+              <span className="text-gray-300">Expired</span>
             </div>
           </div>
         </div>

@@ -35,9 +35,11 @@ export default function Gamification() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-white">Gamification</h1>
-        <p className="text-gray-400">Leaderboards, badges, and student achievements</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-white">Gamification</h1>
+          <p className="text-gray-400">Leaderboards, badges, and student achievements</p>
+        </div>
       </div>
 
       {/* Stats */}

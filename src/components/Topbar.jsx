@@ -13,7 +13,13 @@ export default function Topbar() {
   return (
     <header className="h-16 bg-dark-800 border-b border-dark-600 fixed top-0 right-0 left-0 lg:left-64 z-30">
       <div className="h-full px-6 flex items-center justify-between">
-        {/* Search */}
+        {/* Mobile Logo - visible only on mobile */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <img src="/logo.svg" alt="ShelfSync" className="w-8 h-8" />
+          <span className="font-bold text-white">ShelfSync</span>
+        </div>
+
+        {/* Search - hidden on mobile */}
         <div className="hidden md:flex items-center gap-3 flex-1 max-w-md">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />

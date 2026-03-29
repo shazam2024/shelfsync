@@ -36,18 +36,18 @@ export default function Notices() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Notice Board</h1>
           <p className="text-gray-400">Manage announcements and notifications</p>
         </div>
-        <Button icon={Plus} onClick={() => setIsAddModalOpen(true)}>
+        <Button icon={Plus} onClick={() => setIsAddModalOpen(true)} className="w-full sm:w-auto">
           Add Notice
         </Button>
       </div>
 
       {/* Priority Stats */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Card className="p-4 border-l-4 border-l-red-500 bg-red-950/30">
           <div className="flex items-center gap-3">
             <AlertCircle className="w-5 h-5 text-red-400" />
@@ -90,22 +90,24 @@ export default function Notices() {
             key={notice.id}
             className={`p-4 border-2 transition-all hover:shadow-md ${getPriorityColor(notice.priority)}`}
           >
-            <div className="flex items-start gap-4">
-              <div className="p-2 bg-dark-800 rounded-lg shadow-sm border border-dark-600">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="p-2 bg-dark-800 rounded-lg shadow-sm border border-dark-600 flex-shrink-0">
                 {getPriorityIcon(notice.priority)}
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
                   <h3 className="font-semibold text-gray-100">{notice.title}</h3>
-                  <Badge variant={
-                    notice.priority === 'high' ? 'danger' :
-                    notice.priority === 'medium' ? 'warning' : 'success'
-                  }>
-                    {notice.priority}
-                  </Badge>
+                  <div className="self-start">
+                    <Badge variant={
+                      notice.priority === 'high' ? 'danger' :
+                      notice.priority === 'medium' ? 'warning' : 'success'
+                    }>
+                      {notice.priority}
+                    </Badge>
+                  </div>
                 </div>
-                <p className="text-gray-400 mb-2">{notice.content}</p>
-                <div className="flex items-center gap-4 text-sm text-gray-400">
+                <p className="text-gray-400 mb-2 text-sm">{notice.content}</p>
+                <div className="flex items-center gap-4 text-xs sm:text-sm text-gray-400">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     Posted {formatDate(notice.date)}
@@ -114,7 +116,7 @@ export default function Notices() {
               </div>
               <button
                 onClick={() => handleDeleteNotice(notice.id)}
-                className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors"
+                className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-900/30 rounded-lg transition-colors flex-shrink-0"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
